@@ -18,4 +18,12 @@ jobs:
               shell: pwsh
               run: |
                 Get-NetFirewallRule -Direction Inbound
-
+    linux-network-info:
+        runs-on: ubuntu-latest
+        setps:
+            - name: Show IP address
+              run: ip route
+            - name: show Routing table
+              run: ip route 
+            - name: Show Active Connections
+              run: netstat -tulnp || ss -tulnp
