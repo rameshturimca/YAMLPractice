@@ -28,9 +28,9 @@ jobs:
       - shell: bash
         run: |
           value=`cat math-homework_rk.txt`
-          expr $value \* 9 > math-homework_rk.txt
+          expr $value \* 9 > math-homework_rk2.txt
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v4
         with:
           name: homework
-          path: math-homework_rk.txt
+          path: math-homework_rk2.txt
