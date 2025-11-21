@@ -18,26 +18,4 @@ jobs:
               shell: pwsh
               run: |
                 Get-NetFirewallRule -Direction Inbound
-    name: "Github ActionDemo"
-on: [push]
-jobs:
-    job1-run-on-ubuntu-test:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "welcome to Github Action"
-            - run: echo "welcome to Github Action ${{runner.os}}  ${{runner.name}}"
-            - run: echo "Github events $${{github.event_name}}"
-            - run: pwd
-            - run: ls
-            - run: pwd
-            - run: ls ${{github.workspace}}
-    job2-run-on-windows-test:
-        runs-on: windows-latest
-        steps:
-            - name: Get List of Firewall Inbound Rules
-              shell: pwsh
-              run: |
-                Get-NetFirewallRule -Direction Inbound
-
-
 
