@@ -9,4 +9,13 @@ jobs:
             - run: echo "Github events $${{github.event_name}}"
             - run: pwd
             - run: ls
+            - run: pwd
             - run: ls ${{github.workspace}}
+    job2-run-on-windows-test:
+        runs-on: windows-latest
+        steps:
+            - name: Get List of Firewall Inbound Rules
+            - shell: pwsh
+            - run: 
+                Get-NetFirewallRule -Direction Inbound
+
