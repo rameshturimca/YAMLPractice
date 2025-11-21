@@ -14,7 +14,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: homework
-          path: math-homework.txt
+          path: math-homework_rk.txt
 
   job_2:
     name: Multiply by 9
@@ -27,10 +27,10 @@ jobs:
           name: homework
       - shell: bash
         run: |
-          value=`cat math-homework.txt`
-          expr $value \* 9 > math-homework.txt
+          value=`cat math-homework_rk.txt`
+          expr $value \* 9 > math-homework_rk.txt
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v4
         with:
           name: homework
-          path: math-homework.txt
+          path: math-homework_rk.txt
