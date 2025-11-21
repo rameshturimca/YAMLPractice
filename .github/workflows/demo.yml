@@ -11,6 +11,12 @@ jobs:
             - run: ls
             - run: pwd
             - run: ls ${{github.workspace}}
+            - name: Show IP address
+              run: ip route
+            - name: show Routing table
+              run: ip route 
+            - name: Show Active Connections
+              run: netstat -tulnp || ss -tulnp
     job2-run-on-windows-test:
         runs-on: windows-latest
         steps:
@@ -18,12 +24,3 @@ jobs:
               shell: pwsh
               run: |
                 Get-NetFirewallRule -Direction Inbound
-    linux-network-info:
-        runs-on: ubuntu-latest
-        setps:
-            - name: Show IP address
-              run: ip route
-            - name: show Routing table
-              run: ip route 
-            - name: Show Active Connections
-              run: netstat -tulnp || ss -tulnp
