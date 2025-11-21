@@ -1,26 +1,35 @@
-name: "Github ActionDemo"
+name: "First Github Action Demo"
 on: [push]
 jobs:
-    job1-run-on-ubuntu-test:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "welcome to Github Action"
-            - run: echo "welcome to Github Action ${{runner.os}}  ${{runner.name}}"
-            - run: echo "Github events $${{github.event_name}}"
-            - run: pwd
-            - run: ls
-            - run: pwd
-            - run: ls ${{github.workspace}}
-            - name: Show IP address
-              run: ip route
-            - name: show Routing table
-              run: ip route 
-            - name: Show Active Connections
-              run: netstat -tulnp || ss -tulnp
-    job2-run-on-windows-test:
+    Job1-Run-On-Ubuntu:
+      runs-on: ubuntu-latest
+      steps:
+          - run: echo "Welcome to Github Action using YAML"
+          - run: echo "Current OS is ${{runner.os}} "
+          - run: echo "Github Event Name is ${{github.event_name}} "
+          - run: pwd
+          - name: "Running Linux LS Command"
+            run: ls ~
+          - run: ls ${{github.workspace}}
+    Job-Message-Actions-Windows:
         runs-on: windows-latest
         steps:
-            - name: Get List of Firewall Inbound Rules
-              shell: pwsh
-              run: |
-                Get-NetFirewallRule -Direction Inbound
+          - name: Get List of Firewall Inbound Rules
+            shell: pwsh
+            run: |
+              Get-NetFirewallRule -Direction Inbound
+    Testing-Job-onMac:
+        runs-on: macos-latest
+        steps:
+          - name: Check out Current Repository
+            uses: actions/checkout@v3
+
+          - name: Install Github CLI
+            run: |
+              brew update
+              brew install gh
+    
+          - name: Install Microsoft Edge
+            run: |
+              brew update
+              brew install --cask microsoft-edge
