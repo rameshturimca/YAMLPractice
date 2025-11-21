@@ -1,0 +1,7 @@
+name: "Github ActionDemo"
+on: [push]
+jobs:
+    job1-run-on-ubuntu-test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "welcome to Github Action using YAML"
